@@ -203,6 +203,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/AnnieBoucher/Jupyter-book-test/master?urlpath=tree/mynewbook/test_notebook.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/AnnieBoucher/Jupyter-book-test/blob/master/mynewbook/test_notebook.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -380,18 +429,62 @@ warning</p>
 </div>
 <div class="section" id="mss-data-not-reaching-data-processing-ingest-bucket">
 <h2>1. MSS data not reaching data processing ingest bucket<a class="headerlink" href="#mss-data-not-reaching-data-processing-ingest-bucket" title="Permalink to this heading">#</a></h2>
-<div class="section" id="description">
-<h3>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Following will set the profile name for the code</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;AWS_PROFILE&quot;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;ads-subsetting-data-processing-dev&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2. other data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Following will set the profile name for the code</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_processing_ingest_bucket</span> <span class="o">=</span> <span class="n">retrieve_data_process_ingest_bucket</span><span class="p">()</span>
+<span class="n">data_processing_ingest_bucket</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;Name&#39;: &#39;alison-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 6, 14, 21, 52, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 6, 14, 21, 51, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 6, 14, 21, 51, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 37, 25, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 37, 24, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 6, 14, 21, 52, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;alison-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 2, 27, 15, 2, 18, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 11, 47, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 11, 46, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 11, 46, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 12, 22, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 12, 22, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 13, 11, 47, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;annie2-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 11, 59, 55, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 33, 27, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 33, 27, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 33, 27, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 34, 8, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 34, 8, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 14, 33, 27, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;ant2-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 15, 4, 49, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;cdk-hnb659fds-assets-827952921494-eu-west-2&#39;, &#39;CreationDate&#39;: datetime.datetime(2022, 12, 20, 15, 43, 23, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;cdk-hnb659fds-assets-827952921494-us-east-1&#39;, &#39;CreationDate&#39;: datetime.datetime(2022, 12, 20, 15, 45, 25, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 20, 21, 44, 3, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 12, 15, 30, 42, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 12, 15, 30, 41, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 12, 15, 31, 19, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 13, 9, 34, 23, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 12, 15, 30, 42, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;dsv-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 12, 13, 7, 31, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 9, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 9, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 9, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 49, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 48, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 14, 19, 10, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;emily-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 22, 11, 34, 16, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-config-bucket-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 10, 58, 37, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-data-processing-access-logging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 10, 58, 37, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-data-processing-blending-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 10, 58, 37, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-data-processing-ingest-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 13, 14, 46, 59, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-data-processing-output-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 13, 14, 46, 59, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-adssubsettingdp-data-processing-staging-dev&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 10, 10, 58, 37, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-deploytodev-main-ma-largefilesbucket5bb0b61f-12nhg51se7f7e&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 3, 20, 16, 38, 50, tzinfo=tzutc())}, {&#39;Name&#39;: &#39;main-ss-shc-mock-service-hub-data-bucket&#39;, &#39;CreationDate&#39;: datetime.datetime(2023, 1, 9, 10, 30, 59, tzinfo=tzutc())}]
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">Exception</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_processing_ingest_bucket</span> <span class="o">=</span> <span class="n">retrieve_data_process_ingest_bucket</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data_processing_ingest_bucket</span>
+
+<span class="nn">File C:\Projects\Jupyter-book-test\mynewbook\utils.py:78,</span> in <span class="ni">retrieve_data_process_ingest_bucket</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="n">filtered_bucket_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">bucket</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">bucket_list</span> <span class="k">if</span> <span class="n">DATA_PROCESSING_INGEST_PREFIX</span> <span class="ow">in</span> <span class="n">bucket</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]]</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filtered_bucket_list</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ACCEPTED_NUMBER_OF_BUCKETS</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">78</span>     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Incorrect amount of data processing ingest buckets&quot;</span><span class="p">)</span>  <span class="c1"># pylint: disable=broad-exception-raised</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="n">data_processing_ingest_bucket</span> <span class="o">=</span> <span class="n">filtered_bucket_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">data_processing_ingest_bucket</span><span class="p">)</span>
+
+<span class="ne">Exception</span>: Incorrect amount of data processing ingest buckets
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## 2. other data</span>
 </pre></div>
 </div>
 </div>
@@ -412,16 +505,16 @@ warning</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: ".env"
         },
         kernelOptions: {
-            name: "python3",
+            name: ".env",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = '.env'</script>
 
                 </article>
               
